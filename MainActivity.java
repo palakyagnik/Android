@@ -1,40 +1,23 @@
-package com.example.myapplicationweb;
+package com.example.myapplicationmca;
 
 import android.os.Bundle;
-import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    WebView webView;
-    EditText urlEt;
-    Button openBtn;
+    TextView text1,text2;
+    Button btnClick,btnSubmit;
+    EditText edName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        text1 = findViewById(R.id.txt1);
 
-        webView = findViewById(R.id.webView);
-        urlEt = findViewById(R.id.urlEt);
-        openBtn = findViewById(R.id.openBtn);
-
-        openBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String urlOpen;
-                urlOpen = "https://www." + urlEt.getText().toString();
-                WebSettings wbs = webView.getSettings();
-                wbs.setJavaScriptEnabled(true);
-                webView.setWebViewClient(new WebViewClient());
-                webView.loadUrl(urlOpen);
-            }
-        });
     }
 }
